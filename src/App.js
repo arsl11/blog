@@ -5,7 +5,8 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar"
 import Profile from './components/profile/Profile'
 import DialogsContainer from "./components/dialogs/DialogsContainer";
-import FriendsContainer from "./components/friends/FriendsContainer";
+import UsersContainer from "./components/users/UsersContainer";
+
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
             <div class='app-wrapper-content'>
                 <Route path='/profile' render={ () => <Profile />}/>
                 <Route path='/dialogs' render={ () => <DialogsContainer/>} />
-                <Route path='/friends' render={ () => <FriendsContainer/>} />
+                <Route path='/users' render={ () => <UsersContainer />} />
             </div>
       </div>
   );
