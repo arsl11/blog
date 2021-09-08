@@ -3,6 +3,7 @@ const NavBar = () => {
         <div>
             <a href="/profile">Profile</a>
             <a href="/dialogs">Dialogs</a>
+            <a href='/users'>Users</a>
         </div>
     );
 }
