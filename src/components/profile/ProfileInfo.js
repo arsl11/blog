@@ -1,4 +1,5 @@
 let ProfileInfo = (props) => {
+
     return (
         <div>
             <div className='photo'>
@@ -9,10 +10,10 @@ let ProfileInfo = (props) => {
             </div>
             <div className='lookingForAJob'>
                 {props.profile.lookingForAJob ?
-                    <div className='description'>
+                    <div className='skills'>
                         {props.profile.lookingForAJobDescription}
                     </div>
-                    : 'Не ищу работу'
+                    : 'Я бездельник'
                 }
             </div>
         </div>
