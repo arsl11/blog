@@ -8,7 +8,6 @@ import {
     toogleIsFetching,
     unfollow
 } from "../../redux/users-reducer";
-import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
 import {usersAPI} from "../../api/api";
