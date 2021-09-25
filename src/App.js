@@ -17,7 +17,7 @@ const App = () => {
             <div class='app-wrapper-content'>
                 <Route path='/login' render={ () => <Login />}/>
                 <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
-                <Route path='/dialogs' render={ () => <DialogsContainer/>} />
+                <Route path='/dialogs' render={ () => <DialogsContainer />} />
                 <Route path='/users' render={ () => <UsersContainer />} />
             </div>
       </div>

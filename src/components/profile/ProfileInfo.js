@@ -1,3 +1,5 @@
+import ProfileStatus from "./ProfileStatus";
+
 let ProfileInfo = (props) => {
 
     return (
@@ -16,6 +18,7 @@ let ProfileInfo = (props) => {
                     : 'Я бездельник'
                 }
             </div>
+            <ProfileStatus status='hello my friends'/>
         </div>
     )
 }
