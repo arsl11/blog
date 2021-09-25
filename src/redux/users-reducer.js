@@ -50,8 +50,8 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const follow = (userId) => ({type: FOLLOW, userId })
-export const unfollow = (userId) => ({type: UNFOLLOW, userId })
+export const followSuccess = (userId) => ({type: FOLLOW, userId })
+export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId })
 export const setUsers = (users) => ({type: SET_USERS, users })
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setUsersTotalCount = (totalUsersCount) => ({type: SET_USERS_TOTAL_COUNT, totalUsersCount})
@@ -66,6 +66,24 @@ export const getUsers = (currentPage, pageSize) => (dispatch) => {
         dispatch(toogleIsFetching(false));
         dispatch(setUsers(data.items));
         dispatch(setUsersTotalCount(data.totalCount));
+    });
+}
+
+export const unfollow = (userId) => (dispatch) => {
+
+    usersAPI.unfollow(userId).then(data => {
+        if (data.resultCode === 0) {
+            dispatch(unfollowSuccess(userId));
+        }
+    });
+}
+
+export const follow = (userId) => (dispatch) => {
+
+    usersAPI.follow(userId).then(data => {
+        if (data.resultCode === 0) {
+            dispatch(followSuccess(userId));
+        }
     });
 }
 
