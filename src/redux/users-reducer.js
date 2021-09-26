@@ -57,7 +57,7 @@ export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, current
 export const setUsersTotalCount = (totalUsersCount) => ({type: SET_USERS_TOTAL_COUNT, totalUsersCount})
 export const toogleIsFetching = (isFetching) => ({type: TOOGLE_IS_FETCHING, isFetching})
 
-export const getUsers = (currentPage, pageSize) => (dispatch) => {
+export const requestUsers = (currentPage, pageSize) => (dispatch) => {
 
     dispatch(setCurrentPage(currentPage));
     dispatch(toogleIsFetching(true));

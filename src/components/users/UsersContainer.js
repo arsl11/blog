@@ -1,19 +1,20 @@
 import React from 'react'
 import {connect} from "react-redux";
-import {follow, getUsers, unfollow} from "../../redux/users-reducer";
+import {follow, unfollow, requestUsers} from "../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {getCurrentPage, getIsFetching, getPageSize, getUsers, getUsersTotalCount} from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        this.props.requestUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize)
+        this.props.requestUsers(pageNumber, this.props.pageSize)
     }
 
 
@@ -33,33 +34,33 @@ class UsersContainer extends React.Component {
     }
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setUsersTotalCount: (totalCount) => {
-//             dispatch(setUsersTotalCountAC(totalCount))
-//         },
-//         toogleIsFetching: (isFetching) => {
-//             dispatch(toogleIsFetchingAC(isFetching))
-//         },
-//
-//     }
-// }
+/* let mapDispatchToProps = (dispatch) => {
+    return {
+        follow: (userId) => {
+            dispatch(followAC(userId))
+        },
+        unfollow: (userId) => {
+            dispatch(unfollowAC(userId))
+        },
+        setUsers: (users) => {
+            dispatch(setUsersAC(users))
+        },
+        setCurrentPage: (pageNumber) => {
+            dispatch(setCurrentPageAC(pageNumber))
+        },
+        setUsersTotalCount: (totalCount) => {
+            dispatch(setUsersTotalCountAC(totalCount))
+        },
+        toogleIsFetching: (isFetching) => {
+            dispatch(toogleIsFetchingAC(isFetching))
+        },
+
+    }
+} */
 
 // let UsersAuthRedirect = withAuthRedirect(UsersContainer);
 
-let mapStateToProps = (state) => {
+/* let mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
@@ -67,7 +68,18 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         isFetching: state.usersPage.isFetching
     }
+} */
+
+let mapStateToProps = (state) => {
+    return {
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        currentPage: getCurrentPage(state),
+        totalUsersCount: getUsersTotalCount(state),
+        isFetching: getIsFetching(state),
+    }
 }
 
+
 export default compose(
-    connect(mapStateToProps, {follow, unfollow, getUsers}))(UsersContainer)
+    connect(mapStateToProps, {follow, unfollow, requestUsers}))(UsersContainer)
