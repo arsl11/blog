@@ -1,4 +1,5 @@
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfleStatusWithHooks";
 
 let ProfileInfo = (props) => {
 
@@ -10,15 +11,7 @@ let ProfileInfo = (props) => {
             <div className='fullName'>
                 {props.profile.fullName}
             </div>
-            <div className='lookingForAJob'>
-                {props.profile.lookingForAJob ?
-                    <div className='skills'>
-                        {props.profile.lookingForAJobDescription}
-                    </div>
-                    : 'Я бездельник'
-                }
-            </div>
-            <ProfileStatus status='hello my friends'/>
+            <ProfileStatusWithHooks status={props.profileStatus} updateStatus={props.updateStatus}/>
         </div>
     )
 }

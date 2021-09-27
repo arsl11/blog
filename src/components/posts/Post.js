@@ -1,5 +1,4 @@
 const Post = (props) => {
-    debugger;
 
     return(
         <div className='post'>
