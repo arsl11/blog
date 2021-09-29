@@ -41,7 +41,9 @@ const Login = (props) => {
         <LoginReduxForm onSubmit={onSubmit}/>
     </div>
 }
+
 const mapStateToProps = (state) =>  ({
     isAuth: state.auth.isAuth,
 })
+
 export default connect(mapStateToProps, {login})(Login);

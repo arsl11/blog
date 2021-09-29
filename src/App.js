@@ -4,6 +4,7 @@ import {Route} from "react-router-dom";
 import NavBar from "./components/NavBar"
 import HeaderContainer from "./components/header/HeaderContainer";
 import Preloader from "./components/common/preloader/Preloader";
+import {withSuspense} from "./hoc/withSuspense";
 
 const Login = React.lazy(() => import('./components/Login'));
 const ProfileContainer = React.lazy(() => import('./components/profile/ProfileContainer'));
@@ -17,30 +18,10 @@ const App = () => {
           <HeaderContainer />
           <NavBar />
             <div class='app-wrapper-content'>
-                <Route path='/login'
-                       render={ () => {
-                           return <Suspense fallback={<Preloader />}>
-                               <Login/>
-                           </Suspense>
-                       }}/>
-                <Route path='/profile/:userId?'
-                       render={ () => {
-                           return <Suspense fallback={<Preloader />}>
-                               <ProfileContainer/>
-                           </Suspense>
-                       }}/>
-                <Route path='/dialogs'
-                       render={ () => {
-                    return <Suspense fallback={<Preloader />}>
-                        <DialogsContainer/>
-                    </Suspense>
-                }}/>
-                <Route path='/users' 
-                       render={ () => {
-                           return <Suspense fallback={<Preloader />}>
-                               <UsersContainer/>
-                           </Suspense>
-                }}/>
+                <Route path='/login' render={withSuspense(Login)}/>
+                <Route path='/profile/:userId?' render={withSuspense(ProfileContainer)}/>
+                <Route path='/dialogs' render={withSuspense(DialogsContainer)}/>
+                <Route path='/users' render={ withSuspense(UsersContainer)}/>
             </div>
       </div>
   );
