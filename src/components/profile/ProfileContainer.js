@@ -1,10 +1,11 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {requestProfile, requestProfileStatus, updateStatus} from "../../redux/profile-reducer";
+import {requestProfile, requestProfileStatus, updateStatus} from "../../redux/reducers/profile-reducer";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {getProfile, getProfileStatus} from "../../redux/selectors/profile-selectors";
 
 class ProfileContainer extends React.PureComponent {
 
@@ -25,8 +26,8 @@ class ProfileContainer extends React.PureComponent {
 }
 
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    profileStatus: state.profilePage.profileStatus,
+    profile: getProfile(state),
+    profileStatus: getProfileStatus(state),
 });
 
 
