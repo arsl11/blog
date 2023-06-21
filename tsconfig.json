@@ -23,7 +23,7 @@
   },
   "include": [
     "src"
-  ],
+, "pages/_app.tsx", "store.ts"  ],
   "exclude": [
     "node_modules"
   ]
