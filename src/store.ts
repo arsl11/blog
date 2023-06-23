@@ -2,9 +2,8 @@ import {
   configureStore,
   ThunkAction,
   Action,
-  AnyAction, 
 } from "@reduxjs/toolkit";
-import { authSlice } from "./src/store/authSlice";
+import { authSlice } from "./store/authSlice";
 import { createWrapper } from "next-redux-wrapper";
 
 const makeStore = () => 
