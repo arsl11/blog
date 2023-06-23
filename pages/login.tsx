@@ -5,7 +5,7 @@ import { useAppSelector } from "../src/hoc/useAppSelector";
 import { setAuthState } from '../src/store/authSlice';
 
 
-const Login: NextPage = () =>  {
+const Login: NextPage = () => {
   const dispatch = useAppDispatch();
   const authState = useAppSelector((state) => state.auth.authState)
 
@@ -14,9 +14,9 @@ const Login: NextPage = () =>  {
       <div>{authState ? "Logged in" : "Not logged in"}</div>
       <button
         onClick={() =>
-          authState 
+          authState
             ? dispatch(setAuthState(false))
-            : dispatch(setAuthState(true)) 
+            : dispatch(setAuthState(true))
         }
       >
         {authState ? "Logout" : "Login"}

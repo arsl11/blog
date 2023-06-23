@@ -1,4 +1,4 @@
-import { 
+import {
   configureStore,
   ThunkAction,
   Action,
@@ -6,12 +6,12 @@ import {
 import { authSlice } from "./store/authSlice";
 import { createWrapper } from "next-redux-wrapper";
 
-const makeStore = () => 
+const makeStore = () =>
   configureStore({
     reducer: {
       [authSlice.name]: authSlice.reducer
     }
-});
+  });
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type AppState = ReturnType<AppStore['getState']>;
