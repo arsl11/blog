@@ -1,8 +1,8 @@
 import React from 'react';
 import type { NextPage } from "next";
-import { useAppDispatch } from "../src/hoc/useAppDispatch";
-import { useAppSelector } from "../src/hoc/useAppSelector";
-import { setAuthState } from '../src/store/authSlice';
+import { useAppDispatch } from "../hoc/useAppDispatch";
+import { useAppSelector } from "../hoc/useAppSelector";
+import { setAuthState } from '../store/authSlice';
 
 
 const Login: NextPage = () => {

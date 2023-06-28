@@ -11,12 +11,12 @@ const initialState: AuthState = {
   authState: false,
 };
 
-// Actual Slice
+// Actual slice
 export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    // Action to set the authenication status
+    // Actions
     setAuthState(state, action: PayloadAction<boolean>) {
       state.authState = action.payload;
     }
