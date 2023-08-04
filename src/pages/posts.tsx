@@ -39,7 +39,7 @@ const Posts = () => {
   const posts = useAppSelector((state) => state.posts);
 
   let postElements =
-    posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+    posts.map(p => <Post key={p} message={p.message} likesCount={p.likesCount} />)
 
   let addNewPost = (values: Inputs) => {
     dispatch(addPost(values.message));
