@@ -1,9 +1,22 @@
 import React from "react";
 import { NextPage } from "next";
+import { SignIn, SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import Head from "next/head";
 
 const Home: NextPage = () => {
+  const user = useUser();
+
   return (
-    <div>Home</div>
+    <>
+      <Head>
+        <title>Blog</title>
+        <meta name="description" />
+        <link rel="icon" href="/favicon.ico/" />
+      </Head>
+      <div>
+        {!user.isSignedIn ? <SignInButton /> : <SignOutButton />}
+      </div>
+    </>
   );
 };
 
